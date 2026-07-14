@@ -1,7 +1,12 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 @layer utilities {
   .bg-blur {
     background-color: color-mix(in oklab, #0d00ff 50%, transparent);
+  }
+  .custom-date-input::-webkit-calendar-picker-indicator {
+    filter:brightness(0);
+    cursor:pointer;
   }
 }
