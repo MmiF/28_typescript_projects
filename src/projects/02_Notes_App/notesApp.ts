@@ -1,15 +1,18 @@
 function notesApp() {
-  // const deleteBtnEl = document.querySelector<HTMLButtonElement>(".delete-btn");
+  // Global Variables
   const addNotesBtnEl =
-    document.querySelector<HTMLButtonElement>(".add-notes")!;
-  const notesContainerEl =
+    document.querySelector<HTMLButtonElement>(".add-notes-btn")!;
+  const parentNotesContainerEl =
     document.querySelector<HTMLDivElement>(".notes-container")!;
 
-  function createTextarea() {
+  // Create Note Element function
+  function createNoteElement(textValue: string = "") {
+    let noteContainer: HTMLDivElement = document.createElement("div");
     let textarea: HTMLTextAreaElement = document.createElement("textarea");
-    let btn = document.createElement("button");
-    let iconEl = document.createElement("i");
+    let btn: HTMLButtonElement = document.createElement("button");
+    let iconEl: HTMLElement = document.createElement("i");
 
+    noteContainer.classList.add("relative", "note-container");
     btn.classList.add(
       "delete-btn",
       "text-xl",
@@ -39,12 +42,76 @@ function notesApp() {
     );
     textarea.setAttribute("placeholder", "Notes...");
     textarea.setAttribute("name", "note");
+    textarea.value = textValue;
 
     btn.append(iconEl);
-    notesContainerEl.append(textarea, btn);
+    noteContainer.append(textarea, btn);
+
+    return noteContainer;
   }
 
+  // Create textarea function
+  function createTextarea() {
+    const noteEl = createNoteElement("");
+    parentNotesContainerEl.append(noteEl);
+    updateLocalStorage();
+  }
+
+  // Delete Note Button function
+  parentNotesContainerEl.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+    console.log(target);
+    const deleteBtn = target.closest<HTMLButtonElement>(".delete-btn");
+    console.log(deleteBtn);
+
+    if (deleteBtn) {
+      deleteBtn.closest<HTMLDivElement>(".note-container")?.remove();
+      updateLocalStorage();
+    }
+  });
+
+  // update localStorage when typing in textarea
+  parentNotesContainerEl.addEventListener("input", (e) => {
+    const target = e.target as HTMLElement;
+    if (target.tagName === "TEXTAREA") {
+      updateLocalStorage();
+    }
+  });
+
+  // Save clean Data array to lcoalStorage
+  function updateLocalStorage() {
+    const textarea =
+      parentNotesContainerEl.querySelectorAll<HTMLTextAreaElement>("textarea");
+    console.log(textarea);
+
+    const notesData: string[] = Array.from(textarea).map((ta) => ta.value);
+    console.log(notesData);
+
+    localStorage.setItem("notes", JSON.stringify(notesData));
+  }
+
+  // Restore notes array on load
+  function loadNotes() {
+    const rawData = localStorage.getItem("notes");
+    console.log(rawData);
+    if (!rawData) return;
+
+    try {
+      const notesData: string[] = JSON.parse(rawData);
+      parentNotesContainerEl.innerHTML = "";
+
+      notesData.forEach((note) => {
+        const noteEl = createNoteElement(note);
+        parentNotesContainerEl.append(noteEl);
+      });
+    } catch (err) {
+      console.error(`Failed to parse notes from Storage: ${err}`);
+    }
+  }
+
+  // Event Listeners
   addNotesBtnEl.addEventListener("click", createTextarea);
+  window.addEventListener("DOMContentLoaded", loadNotes);
 }
 
 export default notesApp;
