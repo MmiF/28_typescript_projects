@@ -13,7 +13,7 @@ function calculatorApp() {
   });
 
   // Calculate the uesr age
-  function calculateAge() {
+  function calculateAge():void {
     let birthDate: Date = new Date(dateInputEl.value);
     let today: Date = new Date();
 
