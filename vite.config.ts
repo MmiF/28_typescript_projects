@@ -8,6 +8,14 @@ export default {
     rolldownOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
+        ageCalculator: resolve(
+          __dirname,
+          "src/projects/01_Age_Calculator/index.html",
+        ),
+        noteApp: resolve(
+          __dirname,
+          "src/projects/02_Notes_App/index.html",
+        ),
       },
     },
   },
