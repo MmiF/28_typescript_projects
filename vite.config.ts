@@ -12,10 +12,8 @@ export default {
           __dirname,
           "src/projects/01_Age_Calculator/index.html",
         ),
-        noteApp: resolve(
-          __dirname,
-          "src/projects/02_Notes_App/index.html",
-        ),
+        noteApp: resolve(__dirname, "src/projects/02_Notes_App/index.html"),
+        stopWatch: resolve(__dirname, "src/projects/03_Stop_Watch/index.html"),
       },
     },
   },
