@@ -36,9 +36,9 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 
   <li class="block aura aura-holo p-0.5 list-row bg-slate-700 transition-all hover:-translate-y-1">
 
-    <a href="./src/projects/03_Stop_Watch/index.html" class="card bg-base-100 flex flex-row items-center gap-5 w-full py-6">
+    <a href="./src/projects/04_Digital_Clock/index.html" class="card bg-base-100 flex flex-row items-center gap-5 w-full py-6">
       <div class="text-4xl font-thin opacity-30 pl-3 tabular-nums">04</div>
-      <div class="capitalize">test app</div>
+      <div class="capitalize">Digital Clock</div>
     </a>
 
   </li>
