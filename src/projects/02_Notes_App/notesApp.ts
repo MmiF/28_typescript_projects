@@ -6,7 +6,7 @@ function notesApp() {
     document.querySelector<HTMLDivElement>(".notes-container")!;
 
   // Create Note Element function
-  function createNoteElement(textValue: string = "") {
+  function createNoteElement(textValue: string = ""): HTMLDivElement {
     let noteContainer: HTMLDivElement = document.createElement("div");
     let textarea: HTMLTextAreaElement = document.createElement("textarea");
     let btn: HTMLButtonElement = document.createElement("button");
@@ -50,8 +50,8 @@ function notesApp() {
     return noteContainer;
   }
 
-  // Create textarea function
-  function createTextarea() {
+  // Display textarea function
+  function displayTextarea() {
     const noteEl = createNoteElement("");
     parentNotesContainerEl.append(noteEl);
     updateLocalStorage();
@@ -71,12 +71,12 @@ function notesApp() {
   });
 
   // update localStorage when typing in textarea
-  parentNotesContainerEl.addEventListener("input", (e) => {
+  function updateLSWhenTypinginTE(e: InputEvent) {
     const target = e.target as HTMLElement;
     if (target.tagName === "TEXTAREA") {
       updateLocalStorage();
     }
-  });
+  }
 
   // Save clean Data array to lcoalStorage
   function updateLocalStorage() {
@@ -110,8 +110,9 @@ function notesApp() {
   }
 
   // Event Listeners
-  addNotesBtnEl.addEventListener("click", createTextarea);
-  window.addEventListener("DOMContentLoaded", loadNotes);
+  addNotesBtnEl.addEventListener("click", displayTextarea);
+  parentNotesContainerEl.addEventListener("input", updateLSWhenTypinginTE);
+  document.addEventListener("DOMContentLoaded", loadNotes);
 }
 
 export default notesApp;
