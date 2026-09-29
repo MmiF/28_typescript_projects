@@ -1,0 +1,15 @@
+@import "tailwindcss";
+@import "flowbite/src/themes/playful";
+@import "/node_modules/bootstrap-icons/font/bootstrap-icons.css"; /* @plugin "daisyui"; */
+
+@layer utilities {
+  .showHomeBtn {
+    transition: all;
+    transform: scale(1);
+  }
+}
+
+.showBtn {
+  @apply -translate-x-14 -translate-y-20 scale-100 opacity-100;
+  /* transition: transform 0.2s; */
+}

@@ -5,7 +5,7 @@ import { resolve } from "node:path";
 export default {
   plugins: [tailwindcss()],
   build: {
-    rolldownOptions: {
+    rollupOptions: {
       input: {
         main: resolve(__dirname, "index.html"),
         ageCalculator: resolve(
@@ -18,6 +18,7 @@ export default {
           __dirname,
           "src/projects/04_Digital_Clock/index.html",
         ),
+        dragDrop: resolve(__dirname, "src/projects/05_Drag_Drop/index.html"),
       },
     },
   },

@@ -42,6 +42,16 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
     </a>
 
   </li>
+  
+  <li class="block aura aura-rainbow p-0.5 list-row bg-slate-700 transition-all hover:-translate-y-1">
+
+    <a href="./src/projects/05_Drag_Drop/index.html" class="card bg-base-100 flex flex-row items-center gap-5 w-full py-6">
+      <div class="text-4xl font-thin opacity-30 pl-3 tabular-nums">03</div>
+      <div>Drag & Drop</div>
+    </a>
+
+  </li>
+
 </ul>
  
 </section>

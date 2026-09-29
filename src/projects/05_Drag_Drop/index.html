@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drag & Drop</title>
+  </head>
+  <body class="min-h-screen bg-linear-130 from-blue-950 to-purple-950">
+    <section class="flex w-full justify-center gap-x-10 pt-20 text-white">
+      <ul
+        class="h-fit w-48 border border-dashed border-white text-sm font-medium"
+      >
+        <li class="m-2 cursor-grab bg-purple-400 p-5" draggable="true">
+          <i class="bi bi-three-dots-vertical">
+            <i
+              class="bi bi-three-dots-vertical inline-block -translate-x-3"
+            ></i>
+          </i>
+          item 1
+        </li>
+        <li class="m-2 cursor-grab bg-purple-400 p-5" draggable="true">
+          <i class="bi bi-three-dots-vertical">
+            <i
+              class="bi bi-three-dots-vertical inline-block -translate-x-3"
+            ></i>
+          </i>
+          item 2
+        </li>
+        <li class="m-2 cursor-grab bg-purple-400 p-5" draggable="true">
+          <i class="bi bi-three-dots-vertical">
+            <i
+              class="bi bi-three-dots-vertical inline-block -translate-x-3"
+            ></i>
+          </i>
+          item 3
+        </li>
+        <li class="m-2 cursor-grab bg-purple-400 p-5" draggable="true">
+          <i class="bi bi-three-dots-vertical">
+            <i
+              class="bi bi-three-dots-vertical inline-block -translate-x-3"
+            ></i> </i
+          >item 4
+        </li>
+      </ul>
+
+      <ul
+        class="h-70.5 w-48 border border-dashed border-white text-sm font-medium [&>li]:p-5"
+      ></ul>
+    </section>
+
+    <article class="w-fit">
+      <button
+        class="display-h-btn fixed right-4 bottom-4 h-15 w-15 cursor-pointer rounded-full bg-slate-200 transition-all hover:bg-slate-800 hover:text-white hover:outline-1 hover:outline-white active:bg-slate-600"
+      >
+        Home
+      </button>
+      <a
+        href="/index.html"
+        class="absolute right-0 bottom-0 flex h-12 w-12 scale-0 cursor-pointer items-center justify-center rounded-full bg-red-400 text-2xl font-bold opacity-0 transition-all"
+      >
+        <span class="">H</span>
+      </a>
+    </article>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

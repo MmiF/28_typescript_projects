@@ -60,9 +60,7 @@ function notesApp() {
   // Delete Note Button function
   parentNotesContainerEl.addEventListener("click", (e) => {
     const target = e.target as HTMLElement;
-    console.log(target);
     const deleteBtn = target.closest<HTMLButtonElement>(".delete-btn");
-    console.log(deleteBtn);
 
     if (deleteBtn) {
       deleteBtn.closest<HTMLDivElement>(".note-container")?.remove();
