@@ -9,7 +9,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
   
   <li class="block aura aura-rainbow p-0.5 list-row bg-slate-700 transition-transform hover:-translate-y-1">
     
-        <a href="./src/projects/01_Age_Culculator/index.html" class="card bg-base-100 flex flex-row items-center gap-5 w-full py-6">
+        <a href="./src/projects/01_Age_Calculator/index.html" class="card bg-base-100 flex flex-row items-center gap-5 w-full py-6">
             <div class="text-4xl font-thin opacity-30 pl-3 tabular-nums">01</div>
             <div>Age Calculator</div>
         </a>
