@@ -1,33 +1,63 @@
 import "./style.css";
-console.log("this is from Main.ts in drag & drop");
+import backHomeBtn from "./backHomeBtn";
+import checkAccessiblity from "./Drag&DropAccessibility";
 
-const bhBtn = document.querySelector(".display-h-btn")!;
+backHomeBtn();
+checkAccessiblity();
 
-bhBtn.addEventListener("click", (e) => {
-  const target = e.target as HTMLButtonElement;
+const ulBoxes: NodeListOf<HTMLUListElement> = document.querySelectorAll("ul");
+let draggedItem: HTMLLIElement | null = null;
 
-  const displayHomeBtn = target.closest("button");
-
-  if (displayHomeBtn) {
-    const homeBtn = bhBtn.nextElementSibling as HTMLLinkElement;
-
-    if (homeBtn.classList.contains("scale-0")) {
-      homeBtn.classList.add("showBtn");
-      homeBtn.classList.remove("scale-0");
-    } else {
-      homeBtn.classList.add("scale-0");
-      homeBtn.classList.remove("showBtn");
-    }
-  }
-});
-
-document.addEventListener("click", (e) => {
+document.addEventListener("dragstart", (e) => {
   const target = e.target as HTMLElement;
-  const homeBtn = bhBtn.nextElementSibling as HTMLLinkElement;
-  console.log(target)
-  
-  if (!target.contains(bhBtn) && target !== bhBtn) {
-    homeBtn.classList.add("scale-0");
-    homeBtn.classList.remove("showBtn");
+  if (target && target.tagName === "LI") {
+    target.classList.add("opacity-30");
+    draggedItem = target as HTMLLIElement;
   }
 });
+
+document.addEventListener("dragend", (e) => {
+  const target = e.target as HTMLElement;
+  if (target && target.tagName === "LI") {
+    target.classList.remove("opacity-30");
+    draggedItem = null;
+  }
+});
+
+ulBoxes.forEach((ul) => {
+  ul.addEventListener("dragover", (e) => {
+    e.preventDefault();
+  });
+
+  ul.addEventListener("drop", (e) => {
+    e.preventDefault();
+    if (draggedItem) {
+      ul.append(draggedItem);
+    }
+  });
+});
+// liElms.forEach((li) => {
+//   li.addEventListener("dragstart", (e) => {
+//     let selectedLi = e.target as HTMLLIElement | null;
+
+//     rightBox.addEventListener("dragover", (e) => {
+//       e.preventDefault();
+//     });
+//     rightBox.addEventListener("drop", () => {
+//       if (selectedLi) {
+//         rightBox.append(selectedLi);
+//       }
+//       selectedLi = null;
+//     });
+
+//     leftBox.addEventListener("dragover", (e) => {
+//       e.preventDefault();
+//     });
+//     leftBox.addEventListener("drop", () => {
+//       if (selectedLi) {
+//         leftBox.append(selectedLi);
+//       }
+//       selectedLi = null;
+//     });
+//   });
+// });

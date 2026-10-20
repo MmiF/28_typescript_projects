@@ -6,61 +6,104 @@
     <title>Drag & Drop</title>
   </head>
   <body class="min-h-screen bg-linear-130 from-blue-950 to-purple-950">
-    <section class="flex w-full justify-center gap-x-10 pt-20 text-white">
+    <h1 class="p-10 text-center text-6xl text-white">
+      Drag & Drop W Accessibility
+    </h1>
+    <section class="flex w-full justify-center gap-x-10 py-20 text-white">
       <ul
-        class="h-fit w-48 border border-dashed border-white text-sm font-medium"
+        class="h-80 w-48 border border-dashed border-white text-sm font-medium"
       >
-        <li class="m-2 cursor-grab bg-purple-400 p-5" draggable="true">
+        <li
+          class="m-2 cursor-grab bg-purple-400 p-5"
+          draggable="true"
+          tabindex="0"
+        >
           <i class="bi bi-three-dots-vertical">
             <i
               class="bi bi-three-dots-vertical inline-block -translate-x-3"
             ></i>
           </i>
           item 1
+          <button
+            class="cursor-pointer rounded-full bg-slate-500 px-2 py-1"
+            aria-label="Move Task 1 to box"
+          >
+            Move
+          </button>
         </li>
-        <li class="m-2 cursor-grab bg-purple-400 p-5" draggable="true">
+        <li
+          class="m-2 cursor-grab bg-purple-400 p-5"
+          draggable="true"
+          tabindex="0"
+        >
           <i class="bi bi-three-dots-vertical">
             <i
               class="bi bi-three-dots-vertical inline-block -translate-x-3"
             ></i>
           </i>
           item 2
+          <button
+            class="cursor-pointer rounded-full bg-slate-500 px-2 py-1"
+            aria-label="Move Task 2 to box"
+          >
+            Move
+          </button>
         </li>
-        <li class="m-2 cursor-grab bg-purple-400 p-5" draggable="true">
+        <li
+          class="m-2 cursor-grab bg-purple-400 p-5"
+          draggable="true"
+          tabindex="0"
+        >
           <i class="bi bi-three-dots-vertical">
             <i
               class="bi bi-three-dots-vertical inline-block -translate-x-3"
             ></i>
           </i>
           item 3
+          <button
+            class="cursor-pointer rounded-full bg-slate-500 px-2 py-1"
+            aria-label="Move Task 3 to box"
+          >
+            Move
+          </button>
         </li>
-        <li class="m-2 cursor-grab bg-purple-400 p-5" draggable="true">
+        <li
+          class="m-2 cursor-grab bg-purple-400 p-5"
+          draggable="true"
+          tabindex="0"
+        >
           <i class="bi bi-three-dots-vertical">
             <i
               class="bi bi-three-dots-vertical inline-block -translate-x-3"
             ></i> </i
           >item 4
+          <button
+            class="cursor-pointer rounded-full bg-slate-500 px-2 py-1"
+            aria-label="Move Task 4 to box"
+          >
+            Move
+          </button>
         </li>
       </ul>
 
       <ul
-        class="h-70.5 w-48 border border-dashed border-white text-sm font-medium [&>li]:p-5"
+        class="h-80 w-48 border border-dashed border-white text-sm font-medium [&>li]:p-5"
       ></ul>
     </section>
 
-    <article class="w-fit">
+    <div>
       <button
-        class="display-h-btn fixed right-4 bottom-4 h-15 w-15 cursor-pointer rounded-full bg-slate-200 transition-all hover:bg-slate-800 hover:text-white hover:outline-1 hover:outline-white active:bg-slate-600"
+        class="display-h-btn fixed right-4 bottom-4 h-15 w-15 cursor-pointer rounded-full bg-slate-200 font-bold transition-all hover:bg-slate-800 hover:text-white hover:outline-1 hover:outline-white active:bg-slate-600"
       >
         Home
       </button>
       <a
         href="/index.html"
-        class="absolute right-0 bottom-0 flex h-12 w-12 scale-0 cursor-pointer items-center justify-center rounded-full bg-red-400 text-2xl font-bold opacity-0 transition-all"
+        class="absolute right-0 bottom-0 flex h-12 w-12 scale-0 cursor-pointer items-center justify-center rounded-full border-2 bg-red-400 text-2xl font-bold opacity-0 transition-all hover:border-slate-200 hover:bg-slate-800 hover:text-teal-400"
       >
         <span class="">H</span>
       </a>
-    </article>
+    </div>
 
     <script type="module" src="./main.ts"></script>
   </body>
